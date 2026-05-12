@@ -79,7 +79,6 @@ body { font-family: 'Be Vietnam Pro', sans-serif; background: var(--page-bg); mi
 .btn-add { display: flex; align-items: center; gap: 7px; padding: 9px 18px; background: #7a3a00; color: #fff; border: none; border-radius: 9px; font-size: 16px; font-weight: 700; font-family: inherit; cursor: pointer; transition: background 0.15s; white-space: nowrap; }
 .btn-add:hover { background: #5a2800; }
 .btn-add svg { width: 16px; height: 16px; }
-/* === JOINED CARD: search + results === */
 .search-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px 14px 0 0; padding: 20px 22px; margin-bottom: 0; box-shadow: 0 1px 4px rgba(90,45,0,0.06); border-bottom: none; }
 .search-card-title { font-size: 16px; font-weight: 800; color: var(--burgundy); text-transform: uppercase; letter-spacing: 0.7px; margin-bottom: 16px; display: flex; align-items: center; gap: 7px; }
 .search-card-title svg { width: 15px; height: 15px; }
@@ -99,9 +98,11 @@ body { font-family: 'Be Vietnam Pro', sans-serif; background: var(--page-bg); mi
 .btn-search:hover { background: #5a2800; }
 .btn-reset { height: 38px; padding: 0 14px; background: #f0ece4; color: var(--text-muted); border: 1.5px solid var(--border); border-radius: 8px; font-size: 16px; font-weight: 600; font-family: inherit; cursor: pointer; transition: all 0.15s; }
 .btn-reset:hover { background: #e8e0d0; }
-.btn-export { height: 38px; padding: 0 16px; background: var(--gray-soft); border: 1px solid var(--border); border-radius: 8px; font-size: 15px; font-weight: 600; color: var(--text-muted); cursor: pointer; font-family: inherit; transition: all 0.15s; display: flex; align-items: center; gap: 6px; margin-left: auto; }
+.btn-export { height: 38px; padding: 0 16px; background: var(--gray-soft); border: 1px solid var(--border); border-radius: 8px; font-size: 15px; font-weight: 600; color: var(--text-muted); cursor: pointer; font-family: inherit; transition: all 0.15s; display: flex; align-items: center; gap: 6px; }
 .btn-export:hover { background: var(--border); }
 .btn-export svg { width: 14px; height: 14px; }
+/* *** THAY ĐỔI: btn-export đẩy về phải, btn-add sát ngay sau *** */
+.search-actions .btn-export { margin-left: auto; }
 .multiselect-wrapper { position: relative; }
 .multiselect-trigger { height: 38px; border: 1.5px solid var(--input-border); border-radius: 8px; padding: 0 36px 0 12px; font-size: 16px; font-family: inherit; color: var(--text-main); background: #fff; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 8px; transition: border-color 0.15s; user-select: none; position: relative; }
 .multiselect-trigger:hover,.multiselect-trigger.open { border-color: var(--input-focus); }
@@ -383,10 +384,6 @@ tr:hover td { background: var(--row-hover) !important; }
         </div>
         Quản Lý Thành Viên Ban
       </div>
-      <button class="btn-add" onclick="openAddModal()">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-        Thêm Thành Viên Mới
-      </button>
     </div>
     <div class="search-card">
       <div class="search-card-title">
@@ -438,9 +435,14 @@ tr:hover td { background: var(--row-hover) !important; }
           Tìm kiếm
         </button>
         <button class="btn-reset" onclick="doReset()">Đặt lại</button>
+        <!-- btn-export bây giờ có margin-left:auto → kéo về phải cùng btn-add -->
         <button class="btn-export" onclick="showToast('📊 Đang xuất Excel...')">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           Xuất Excel
+        </button>
+        <button class="btn-add" onclick="openAddModal()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Thêm Thành Viên Mới
         </button>
       </div>
     </div>
